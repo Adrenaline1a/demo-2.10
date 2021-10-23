@@ -3,31 +3,23 @@
 
 
 def positive(*arguments):
-    summ = 0
-    last = 0
-    numbers = [int(argument) for argument in arguments]
-    for i, n in enumerate(numbers):
-        if i >= last and n > 0:
-            last = i
-    arguments = numbers[:last]
-    for i in arguments:
-        summ += i
-    return summ
-
-
-def main(argument):
-    if argument == '':
-        print(None)
-    else:
-        argument = argument.split(',')
-        arguments = {}
-        for i, n in enumerate(argument):
-            arguments[i] = int(n)
-        print("Сумма аргументов, расположенных до последнего"
-              " положительного числа:",
-              positive(*arguments.values()))
+        summ = 0
+        last = 0
+        for i, n in enumerate(arguments):
+            if i >= last and n > 0:
+                last = i
+        arguments = arguments[:last]
+        for i in arguments:
+            summ += i
+        return summ
 
 
 if __name__ == '__main__':
-    argument = input('Введите список аргументов через запятую: ')
-    main(argument)
+    try:
+        print('Введите список аргументов через запятую: ')
+        argument = list(map(float, input().split(',')))
+        print("Сумма аргументов, расположенных до последнего"
+              " положительного числа:",
+              positive(*argument))
+    except ValueError:
+        print(None)

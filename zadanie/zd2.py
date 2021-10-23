@@ -2,31 +2,22 @@
 # -*- coding: utf-8 -*-
 
 
-def harmonic_mean_of_numbers(*args):
+def harmonic_mean_of_numbers(*arg):
     summ = 0
-    numbers = [float(arg) for arg in args]
-    numbers.sort()
-    for i in numbers:
+    for i in arg:
         if i == 0:
             return 'Невозможно посчитать, т.к. в списке есть 0'
         else:
-            summ += 1/i
-    harmonic = 1/(1/len(numbers)*summ)
+            summ += 1/float(i)
+    harmonic = 1/(1/len(arg)*summ)
     return harmonic
 
 
-def main(arg):
-    if arg == '':
-        print(None)
-    else:
-        arg = arg.split(',')
-        args = {}
-        for i, n in enumerate(arg):
-            args[i] = int(n)
-        print("Среднее гармоническое элементов: ",
-              harmonic_mean_of_numbers(*args.values()))
-
-
 if __name__ == '__main__':
-    arg = input('Введите список аргументов через запятую: ')
-    main(arg)
+    try:
+        print('Введите список аргументов через запятую: ')
+        arg = list(map(float, input().split(',')))
+        print("Среднее гармоническое элементов: ",
+              harmonic_mean_of_numbers(*arg))
+    except ValueError:
+        print(None)
