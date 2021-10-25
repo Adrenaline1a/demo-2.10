@@ -1,6 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+
+def checklist(**argument):
+    for key, value in argument.items():
+        print("{} - {}".format(key, value))
+
+
+def add(argument):
+    message = input('Введите параметр: ')
+    argument[message] = input("Введите значение: ")
+    return argument
+
+
 def main():
     argument = {}
     while True:
@@ -8,15 +20,12 @@ def main():
         if mess == "exit":
             exit()
         elif mess == "add":
-            message = input('Введите параметр: ')
-            argument[message] = input("Введите значение: ")
+            add(argument)
         elif mess == 'list':
-            for key, value in argument.items():
-                print("{} - {}".format(key, value))
+            checklist(**argument)
         else:
             print("Неизвестная команда")
 
 
 if __name__ == '__main__':
     main()
-
