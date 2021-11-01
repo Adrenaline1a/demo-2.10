@@ -3,14 +3,14 @@
 
 
 def positive(*arguments):
-        summ = last = 0
-        for i, n in enumerate(arguments):
-            if i >= last and n > 0:
-                last = i
-        arguments = arguments[:last]
-        for i in arguments:
-            summ += i
-        return summ
+    summ = last = 0
+    for i, n in enumerate(arguments):
+        if i >= last and n > 0:
+            last = i
+    arguments = arguments[:last]
+    for i in arguments:
+        summ += i
+    return summ
 
 
 if __name__ == '__main__':

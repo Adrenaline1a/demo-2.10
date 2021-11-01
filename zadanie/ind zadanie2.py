@@ -25,7 +25,8 @@ if __name__ == '__main__':
         if mess == "exit":
             exit()
         elif mess == "add":
-            add(arguments, key=input("Введите параметр: "), value=input("Введите значение: "))
+            add(arguments, key=input("Введите параметр: "),
+                value=input("Введите значение: "))
         elif mess == 'list':
             print(listing(arguments))
         else:

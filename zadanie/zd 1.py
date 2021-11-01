@@ -5,7 +5,7 @@
 def composition(*arg):
     a = 1
     for i in arg:
-           a *= i
+        a *= i
     a = a ** (1/len(arg))
     return a
 
