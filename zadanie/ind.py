@@ -3,8 +3,7 @@
 
 
 def positive(*arguments):
-        summ = 0
-        last = 0
+        summ = last = 0
         for i, n in enumerate(arguments):
             if i >= last and n > 0:
                 last = i

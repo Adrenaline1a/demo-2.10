@@ -2,30 +2,31 @@
 # -*- coding: utf-8 -*-
 
 
-def checklist(**argument):
-    for key, value in argument.items():
-        print("{} - {}".format(key, value))
+def add(arguments, **argument):
+    for k, v in argument.items():
+        if k == 'key':
+            global a
+            a = v
+        elif k == 'value':
+            global b
+            b = v
+    listing(arguments)
 
 
-def add(argument):
-    message = input('Введите параметр: ')
-    argument[message] = input("Введите значение: ")
-    return argument
+def listing(argumets):
+    arguments[a] = b
+    return argumets
 
 
-def main():
-    argument = {}
+if __name__ == '__main__':
+    arguments = {}
     while True:
         mess = input('Введите команду: ').lower()
         if mess == "exit":
             exit()
         elif mess == "add":
-            add(argument)
+            add(arguments, key=input("Введите параметр: "), value=input("Введите значение: "))
         elif mess == 'list':
-            checklist(**argument)
+            print(listing(arguments))
         else:
             print("Неизвестная команда")
-
-
-if __name__ == '__main__':
-    main()
